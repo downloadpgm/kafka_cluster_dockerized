@@ -1,0 +1,30 @@
+version: "3.1"
+
+services:
+  kfk1:
+    image: mkenjis/ubkfk_img
+    environment:
+      - BROKER_ID=0
+      - KFK_HOST=kfk1
+      - ZKP_HOST_BROKERS=kfk1,kfk2,kfk3
+    networks:
+      - mynet
+  kfk2:
+    image: mkenjis/ubkfk_img
+    environment:
+      - BROKER_ID=1
+      - KFK_HOST=kfk2
+      - ZKP_HOST_BROKERS=kfk1,kfk2,kfk3
+    networks:
+      - mynet
+  kfk3:
+    image: mkenjis/ubkfk_img
+    environment:
+      - BROKER_ID=2
+      - KFK_HOST=kfk3
+      - ZKP_HOST_BROKERS=kfk1,kfk2,kfk3
+    networks:
+      - mynet
+
+networks:
+  mynet:
