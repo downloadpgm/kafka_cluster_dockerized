@@ -7,6 +7,8 @@ services:
       - BROKER_ID=0
       - KFK_HOST=kfk1
       - ZKP_HOST_BROKERS=kfk1,kfk2,kfk3
+    volumes:
+      - data0:/usr/local/kafka_2.11-2.1.1/data
     networks:
       - mynet
   kfk2:
@@ -15,6 +17,8 @@ services:
       - BROKER_ID=1
       - KFK_HOST=kfk2
       - ZKP_HOST_BROKERS=kfk1,kfk2,kfk3
+    volumes:
+      - data1:/usr/local/kafka_2.11-2.1.1/data
     networks:
       - mynet
   kfk3:
@@ -23,8 +27,15 @@ services:
       - BROKER_ID=2
       - KFK_HOST=kfk3
       - ZKP_HOST_BROKERS=kfk1,kfk2,kfk3
+    volumes:
+      - data2:/usr/local/kafka_2.11-2.1.1/data
     networks:
       - mynet
 
 networks:
   mynet:
+  
+volumes:
+  data0:
+  data1:
+  data2:
