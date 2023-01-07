@@ -42,7 +42,7 @@ $ docker swarm join-token manager  # issue a token to add a node as manager to s
 $ docker swarm join --token <token> <IP nodeN>:2377
 ```
 
-3. start hadoop namenode and datanodes 
+3. start kafka nodes 
 ```shell
 $ docker stack deploy -c docker-compose.yml kfk
 $ docker service ls

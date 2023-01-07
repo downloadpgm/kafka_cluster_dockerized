@@ -9,8 +9,6 @@ service ssh start
 
 echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
 ssh-keyscan ${HOSTNAME} >~/.ssh/known_hosts
-ssh-keyscan localhost >>~/.ssh/known_hosts
-ssh-keyscan 0.0.0.0 >>~/.ssh/known_hosts
 
 sleep 20
    
